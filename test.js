@@ -1,33 +1,15 @@
+const _instanceof = function(obj, fn) {
+    if(obj === fn.prototype) return true;
+    if (obj === null) return false;
+    return _instanceof(obj.__proto__, fn);
+};
 
-const rectangle = {};
+const date = new Date();
 
-Object.defineProperty(rectangle, "x", {
-    set(x) {
-        if (x > 0) {
-            this._x = x;
-        } else {
-            console.log("Invalid value for x");
-        }
-    }
-});
+console.log(date instanceof Date);
+console.log(date instanceof Object);
+console.log(date instanceof Array);
 
-Object.defineProperty(rectangle, "y", {
-    set(y) {
-        if (y > 0) {
-            this._y = y;
-        } else {
-            console.log("Invalid value for y");
-        }
-    }
-});
-
-Object.defineProperty(rectangle, "area", {
-    get() {
-        return this._x * this._y;
-    }
-});
-
-rectangle.x = 10;
-rectangle.y = 2;
-
-console.log(rectangle.area);
+console.log(_instanceof(date, Date));
+console.log(_instanceof(date, Object));
+console.log(_instanceof(date, Array));
