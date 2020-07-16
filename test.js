@@ -1,15 +1,10 @@
-const Rectangle = function(x, y) {
-    this.x = x;
-    this.y = y;
-    this.calculateArea = function() {
-        if (this.x > 0 && this.y > 0) {
-            return this.x * this.y;
-        } else {
-            throw "Invalid value for x or y";
-        }
-    }
-}
+const languages = ["Pyton", "C", "Java"];
 
-const rectangle = new Rectangle(10, 2);
+console.log(languages);
+console.log(languages.splice(1, 1));
+console.log(languages.splice(1, 0, "C++", "C#"));
+console.log(languages.splice(1, 2, "C"));
+console.log(languages);
 
-console.log(rectangle.calculateArea());
+
+
